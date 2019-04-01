@@ -1,0 +1,17 @@
+﻿doctype html
+html
+  head
+    title
+    include ../includes/link.pug
+  body
+    h2 list the words
+    table
+        each item, index in list
+            tr
+                td
+                    a(href="/admin/details/" + item.word)= (item.word)
+                td
+                    a(href="/admin/delete/" + item.word) x
+
+    br
+    a(href="/admin/add") Add

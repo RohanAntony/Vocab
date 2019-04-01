@@ -1,0 +1,11 @@
+﻿doctype html
+html
+  head
+    title
+    include ../includes/link.pug
+  body
+    h2= 'Details' 
+    h3= ('Name: ' + word)
+    p= ('Definition: ' + definition)
+    p= ('Example: ' + example)
+    a(href="/admin/update/"+ word) Update

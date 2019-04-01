@@ -1,0 +1,20 @@
+﻿doctype html
+html
+  head
+    title
+    link(rel="stylesheet" href="/app.css")
+  body
+    h2 Add / Update a word details
+    -
+        word = word ? word : ""
+        definition = definition ? definition : ""
+        example = example ? example : ""
+    form(action="/admin/add" method="post")
+        div
+            input(type="text" name="word" placeholder="Enter the word:" value=word)
+        div
+            textarea(placeholder="Enter the definition" name="definition")= definition
+        div
+            textarea(placeholder="Enter an example of usage" name="example")= example
+        div
+            input(type="submit" value="Add")

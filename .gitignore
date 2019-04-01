@@ -1,0 +1,4 @@
+*.njsproj
+*.njsproj.*
+config.json
+node_modules
