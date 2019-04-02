@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Admin page</title>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather|Poppins" rel="stylesheet">
+    <link rel="stylesheet" href="css/container.css">
+    <link rel="stylesheet" href="css/wordList.css">
+    <link rel="stylesheet" href="css/wordEntry.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Admin</h1>
+      </div>
+
+      <div class="word-list" id="word-list">
+        <div class="search">
+          <input type="text" v-model="searchWord" v-on:input="fetchWords()" name="search" placeholder="Enter the word to search here:">
+        </div>
+        <div class="list">
+
+          <div class="item" v-for="item, index in listOfWords">
+            <p v-on:click="updateWordEntry(item.word, item.def, item.example)">{{ item.word }}</p>
+          </div>
+
+        </div>
+        <div class="add">
+          <button type="button" name="button" v-on:click="updateWordEntry('', '', '', 'Add')">Add</button>
+        </div>
+      </div>
+
+      <div class="word-entry" id="word-entry">
+
+
+        <div class="label">
+          <label for="word">Word:</label>
+        </div>
+        <div class="word-input input">
+          <input type="text" v-model="word" value="" placeholder="Enter Word:">
+        </div>
+
+        <div class="empty">&nbsp;</div>
+
+        <div class="label">
+          <label for="def">Definition:</label>
+        </div>
+        <div class="def-input input">
+          <textarea name="name" placeholder="Enter definition:" v-model="def"></textarea>
+        </div>
+
+        <div class="empty">&nbsp;</div>
+
+        <div class="label">
+          <label for="example">Example:</label>
+        </div>
+        <div class="example-input input">
+          <textarea name="example" placeholder="Enter example:" v-model="example"></textarea>
+        </div>
+
+        <div class="empty">&nbsp;</div>
+
+        <div class="buttons">
+          <div class="update-add">
+            <button type="button" name="button">{{ type }}</button>
+          </div>
+          <div class="delete">
+            <button type="button" v-show="type == 'Update'" name="button">Delete</button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript" src="js/admin.js"></script>
+  </body>
+</html>

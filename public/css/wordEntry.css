@@ -1,0 +1,79 @@
+.word-entry{
+  grid-column: 4/5;
+  grid-row:4/5;
+  background-color: #ff99ff;
+  display:flex;
+  box-sizing: border-box;
+  padding: 2em;
+  flex-direction: column;
+}
+
+.empty{
+  flex-basis: 1em;
+}
+
+.label{
+  flex-basis: 2em;
+}
+
+.word-input{
+  flex-basis: 2em;
+}
+
+.word-input input{
+  box-sizing: border-box;
+  padding: 1em;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.def-input{
+  flex-basis: 6em;
+}
+
+.def-input textarea{
+  box-sizing: border-box;
+  padding: 1em;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.example-input{
+  flex-basis: 6em;
+}
+
+.example-input textarea{
+  box-sizing: border-box;
+  padding: 1em;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+}
+
+
+.buttons{
+  flex-basis: 3em;
+  width: 100%;
+  display:flex;
+}
+
+.update-add{
+  width: 10em;
+}
+
+.update-add button{
+  width: 100%;
+  height:100%;
+}
+
+.delete{
+  width:10em;
+}
+
+.delete button{
+  width:100%;
+  height: 100%;
+}

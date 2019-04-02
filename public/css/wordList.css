@@ -1,0 +1,45 @@
+.word-list{
+  box-sizing: border-box;
+  padding: 1em;
+  grid-column: 2/3;
+  grid-row:4/5;
+  background-color: #ff99ff;
+  display:flex;
+  flex-direction: column;
+}
+
+.search{
+  flex: 2em;
+}
+
+.search input{
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 1em;
+}
+
+.add{
+  flex: 2em;
+}
+
+.add button{
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 1em;
+}
+
+.list{
+  flex: 32em;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 1em;
+}
+
+.list .item{
+  flex-basis: 2em;
+}
