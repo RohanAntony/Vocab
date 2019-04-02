@@ -1,4 +1,5 @@
-let fs = require('fs')
+const fs = require('fs')
+const path = require('path')
 
 let express = require('express')
 let app = express();
@@ -11,7 +12,7 @@ let CONFIG_JSON = JSON.parse(fs.readFileSync('./config.json'))
 let admin = require('./admin')
 let word = require('./word')
 
-app.use(express.static('public'))
+app.use(express.static(path.join(__dirname, 'node_modules/semantic-ui-css')))
 app.set('view engine', 'pug')
 
 app.use('/admin', admin)
@@ -21,4 +22,4 @@ app.get('/*', function (req, res) {
     res.send('Home page')
 })
 
-app.listen(CONFIG_JSON.PORT);
+app.listen(CONFIG_JSON.PORT, CONFIG_JSON.IP);

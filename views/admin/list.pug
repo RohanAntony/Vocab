@@ -4,14 +4,23 @@ html
     title
     include ../includes/link.pug
   body
-    h2 list the words
-    table
-        each item, index in list
-            tr
-                td
-                    a(href="/admin/details/" + item.word)= (item.word)
-                td
-                    a(href="/admin/delete/" + item.word) x
-
+    div
+        h1 &nbsp;
+    div(class="ui large header centered") Browse words
+    div
+        h1 &nbsp;
+    // /admin/details/:word for details of the word
+    // /admin/delete/:word to delete the word from DB
+    div(class="ui container")
+        div(class="ui four column grid")
+            div(class="one wide column")
+                div(class="ui relaxed list")
+                    each item in list
+                        div(class="content")
+                            a(href="/admin/details/" + item.word)
+                                h3= item.word
+                        
+            div(class="three wide column")
+                h1 Hello world
     br
     a(href="/admin/add") Add

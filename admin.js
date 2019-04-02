@@ -1,14 +1,18 @@
 ﻿let router = require('express').Router();
 let data = require('./Db/MongoStorage');
 
-console.log(data)
-
 router.get('/add', function (req, res) {
-    res.render('admin/add.pug', {})
+    doc = {
+        type: "Add"
+    }
+    console.log(doc)
+    res.render('admin/add.pug', doc)
 })
 
 router.get('/update/:word', function (req, res) {
     data.detailsOfWord(req.params.word, (err, doc) => {
+        doc.type = "Update"
+        console.log(doc)
         res.render('admin/add.pug', doc)
     })
 })

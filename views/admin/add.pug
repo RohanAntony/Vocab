@@ -2,19 +2,34 @@
 html
   head
     title
-    link(rel="stylesheet" href="/app.css")
+    include ../includes/link.pug
   body
-    h2 Add / Update a word details
-    -
-        word = word ? word : ""
-        definition = definition ? definition : ""
-        example = example ? example : ""
-    form(action="/admin/add" method="post")
-        div
-            input(type="text" name="word" placeholder="Enter the word:" value=word)
-        div
-            textarea(placeholder="Enter the definition" name="definition")= definition
-        div
-            textarea(placeholder="Enter an example of usage" name="example")= example
-        div
-            input(type="submit" value="Add")
+    div
+        h1 &nbsp;
+    if type == "Update"
+        - header = "Update an existing word" 
+        - button = "Update"
+    else
+        - header = "Add a new word"
+        - button = "Add"
+    div(class="ui large header centered")= header
+    div
+        h1 &nbsp;
+    div
+        //Add object here to show alert messages
+        p 
+    div(class="ui container")
+        form(action="/admin/add" method="post")
+            div(class="ui fluid form centererd card")
+                div(class="field extra content")
+                    label Word:
+                    input(type="text" name="word" placeholder="Enter the word:" value=word)
+                div(class="field extra content")
+                    label Definition:
+                    textarea(placeholder="Enter the definition of the word:" name="definition" rows="2")= definition
+                div(class="field extra content")
+                    label Example:
+                    textarea(placeholder="Enter an example of how the word is used:" name="example" rows="5")= example
+                div(class="field content")
+                    button(class="ui button" type="submit")= button
+                
