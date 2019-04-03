@@ -15,11 +15,12 @@ let word = require('./word')
 
 app.use(express.static('public'));
 
-app.use('/admin', admin)
+
+app.use('/vocab/admin', admin)
 app.use('/word', word)
 
 app.get('/*', function (req, res) {
-    res.send('Home page')
+    res.send('Default URL, to be decided as to where it should redirect')
 })
 
 app.listen(CONFIG_JSON.PORT, CONFIG_JSON.IP);

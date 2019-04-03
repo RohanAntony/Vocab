@@ -3,7 +3,8 @@ const path = require('path')
 const data = require('./Db/MongoStorage');
 
 router.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'))
+    console.log(req.baseUrl);
+    res.sendFile(path.join(__dirname, 'public', 'vocab/admin.html'))
 })
 
 router.post('/add', function (req, res) {
@@ -46,7 +47,8 @@ router.post('/delete', function (req, res) {
 })
 
 router.get('/*', function (req, res) {
-    res.redirect(req.baseUrl + '/add')
+    console.log(req.baseUrl + '/')
+    res.redirect(req.baseUrl + '/')
 })
 
 module.exports = router;
