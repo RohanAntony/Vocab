@@ -6,14 +6,14 @@ let app = express();
 let bodyParser = require('body-parser')
 
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 
 let CONFIG_JSON = JSON.parse(fs.readFileSync('./config.json'))
 
 let admin = require('./admin')
 let word = require('./word')
 
-app.use(express.static(path.join(__dirname, 'node_modules/semantic-ui-css')))
-app.set('view engine', 'pug')
+app.use(express.static('public'));
 
 app.use('/admin', admin)
 app.use('/word', word)

@@ -21,7 +21,7 @@
         <div class="list">
 
           <div class="item" v-for="item, index in listOfWords">
-            <p v-on:click="updateWordEntry(item.word, item.def, item.example)">{{ item.word }}</p>
+            <p v-on:click="updateWordEntry(item.word, item.definition, item.example)">{{ item.word }}</p>
           </div>
 
         </div>
@@ -62,10 +62,10 @@
 
         <div class="buttons">
           <div class="update-add">
-            <button type="button" name="button">{{ type }}</button>
+            <button type="button" name="button" v-on:click="addWord()">{{ type }}</button>
           </div>
           <div class="delete">
-            <button type="button" v-show="type == 'Update'" name="button">Delete</button>
+            <button type="button" v-show="type == 'Update'" name="button" v-on:click="deleteWord(word)">Delete</button>
           </div>
         </div>
 
@@ -74,6 +74,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="text/javascript" src="js/admin.js"></script>
   </body>
 </html>

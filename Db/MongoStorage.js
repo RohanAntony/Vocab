@@ -32,12 +32,12 @@ const deleteWord = (word, cb) => {
     }, cb)
 }
 
-const listWords = (cb) => {
-    console.log('listWords')
-    WordDetails.find({}, function (err, docs) {
-        console.log('Inside Callback')
+const listWords = (query, cb) => {
+    WordDetails.find(query, {
+        '_id': 0
+    }, function (err, docs) {
         cb(err, docs)
-    });
+    }).limit(10);
 }
 
 const detailsOfWord = (word, cb) => {
