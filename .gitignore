@@ -2,3 +2,4 @@
 *.njsproj.*
 config.json
 node_modules
+logs

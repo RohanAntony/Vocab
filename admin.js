@@ -1,18 +1,21 @@
 ﻿const router = require('express').Router();
 const path = require('path')
 const data = require('./Db/MongoStorage');
+const logger = require('./logger')
 
 router.get('/', function (req, res) {
-    console.log(req.baseUrl);
+    logger.info('GET /');
     res.sendFile(path.join(__dirname, 'public', 'vocab/admin.html'))
+    logger.debug('Sending file vocab/admin.html')
 })
 
 router.post('/add', function (req, res) {
-    console.log(req.body)
+    logger.info('POST ' + req.url + " Adding: " + req.body.word)
     data.insertOrUpdateWord(req.body.word, 
         req.body.def, 
         req.body.example,
         function () {
+            logger.info('{"status": "Success"}')
             res.send({
                 'status': 'Success'
             })
@@ -20,26 +23,22 @@ router.post('/add', function (req, res) {
 })
 
 router.post('/list', function (req, res) {
-    console.log('/list POST')
+    logger.info('POST ' + req.url + " Listing: " + req.body.word)
     data.listWords({
         word: {
             $regex: '^' + req.body.word
         }
     }, (err, docs) => {
-        for (let index = 0; index < docs.length; index++) {
-            console.log(index)
-            docs[index].def = docs[index].definition;
-            delete docs[index].definition;
-            console.log(docs[index])
-        }
-        console.log(docs);
+        logger.debug("Found " + docs.length + " documents");
         res.send(docs);
     })
 })
 
 router.post('/delete', function (req, res) {
     let word = req.body.word;
+    logger.info('POST ' + req.url + " Deleting: " + word)
     data.deleteWord(word, () => {
+        logger.debug('{ "status" : "Success"  }');
         res.send({
             'status': 'Success'
         })
@@ -47,7 +46,7 @@ router.post('/delete', function (req, res) {
 })
 
 router.get('/*', function (req, res) {
-    console.log(req.baseUrl + '/')
+    logger.info('GET ' + req.url + ' Redirecting: ' + req.baseUrl)
     res.redirect(req.baseUrl + '/')
 })
 

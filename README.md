@@ -9,10 +9,14 @@ Application on helping one improve his vocabulary by referring to a list of comm
 - Checkout this application to a directory
 - Create a config.json file with the below fields
 `{
-  "PORT": 8000,
-  "IP": "127.0.0.1",
-  "MONGOOSE": {
-    "CONNECT_STRING": "<connect string for mongodb like 'mongodb://localhost:27017/test'>"
+  "port": 8000,
+  "ip": "127.0.0.1",
+  "mongoose": {
+    "connectString": "<connect string for mongodb like 'mongodb://localhost:27017/test'>"
+  },
+  "logger":{
+  	  "logFile": "logs/dev.log"
+	  "logLevel": "debug"
   }
 }`
 

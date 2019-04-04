@@ -22,6 +22,7 @@ var wordEntry = new Vue({
           this.word = '';
           this.def = '';
           this.example = '';
+          this.type = 'Add';
           wordList.fetchWords();
         }else {
           console.log('Error while adding word')
@@ -41,7 +42,7 @@ var wordEntry = new Vue({
           this.example = ''
           wordList.fetchWords();
         }else{
-          
+
         }
       }).catch((error) => {
         console.log('Error while deleting the word')
@@ -85,5 +86,8 @@ var wordList = new Vue({
         })
       }
     }
+  },
+  mounted() {
+    this.fetchWords();
   }
 })
