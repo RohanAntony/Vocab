@@ -1,5 +1,7 @@
 ﻿# VocabRefresher
 
+Hosted on: [http://rantony.com/vocab](http://rantony.com/vocab/admin)
+
 Application on helping one improve his vocabulary by referring to a list of commonly used words.
 
 - Install NodeJS on server
