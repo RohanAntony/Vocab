@@ -21,6 +21,7 @@ app.use('/vocab/admin', admin)
 app.use('/word', word)
 
 app.get('/*', function (req, res) {
+    logger.info('GET ' + req.originalUrl + ' Yet to determine where to redirect the base URL')
     res.send('Default URL, to be decided as to where it should redirect')
 })
 
